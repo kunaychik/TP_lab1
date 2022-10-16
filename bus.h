@@ -4,6 +4,7 @@
 #include "garage.h"
 #include <fstream>
 #include <iostream>
+#include <cstring>
 
 
 class Bus : public Garage {
@@ -18,7 +19,7 @@ public:
     Bus();
     explicit Bus(std::ifstream& in);
     Bus(const Bus& car);
-    ~Bus() = default;
+    ~Bus() override = default;
 
     void show() override;
     void edit() override;
