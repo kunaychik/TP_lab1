@@ -2,6 +2,14 @@
 #define GARAGE_H
 #include <fstream>
 
+#define InvalidInput if(std::cin.fail() || std::cin.get() != '\n') throw "Invalid value"
+
+enum Vehicles {
+    BIKE = 1,
+    CAR,
+    BUS
+};
+
 class Garage {
 public:
 
