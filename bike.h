@@ -4,20 +4,21 @@
 #include "garage.h"
 #include <fstream>
 #include <iostream>
+#include <cstring>
 
 class Bike : public Garage {
 private:
     char brand[64];
     char model[64];
-    char engine_capacity[64];
-    char engine_power[64];
+    int engine_capacity;
+    int engine_power;
     char terrain_type[64];
 
 public:
     Bike();
     explicit Bike(std::ifstream& in);
     Bike(const Bike& car);
-    ~Bike() = default;
+    ~Bike() override = default;
 
     void show() override;
     void edit() override;
