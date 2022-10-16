@@ -4,12 +4,13 @@
 #include "garage.h"
 #include <fstream>
 #include <iostream>
+#include <cstring>
 
 class Car : public Garage{
 private:
     char brand[64];
     char model[64];
-    char engine_capacity[64];
+    int engine_capacity;
     char colour[64];
     char KPP_type[64];
 
@@ -17,7 +18,7 @@ public:
     Car();
     explicit Car(std::ifstream& in);
     Car(const Car& car);
-    ~Car() = default;
+    ~Car() override = default;
 
     void show() override;
     void edit() override;
