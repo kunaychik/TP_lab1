@@ -18,7 +18,26 @@ void Keeper::add_new_vehicle() {
 }
 
 void Keeper::delete_vehicle() {
+    int choice;
+    show();
+    std::cout << "Select vehicle: ";
+    std::cin >> choice;
+    InvalidInput;
+    if(choice <= 0 || choice > static_cast<int>(count_of_vehicle)) throw "Invalid input";
 
+
+    auto new_garage = new Garage * [count_of_vehicle - 1];
+
+    for (uint16_t i = 0, j = 0; i < count_of_vehicle; ++i) {
+        if(i == choice - 1) continue;
+        new_garage[++j] = my_garage[i];
+    }
+    delete[] my_garage[choice-1];
+    --count_of_vehicle;
+
+    delete[] my_garage;
+
+    my_garage = new_garage;
 }
 
 void Keeper::edit() {
@@ -33,6 +52,7 @@ void Keeper::edit() {
 }
 
 void Keeper::show() {
+    if(!count_of_vehicle) throw "There are no vehicles in garage";
     for (int i = 0; i < count_of_vehicle; ++i) {
         std::cout << i + 1 << ": " << std::endl;
         my_garage[i]->show();
@@ -40,7 +60,7 @@ void Keeper::show() {
 }
 
 void Keeper::save() {
-    if(!count_of_vehicle) throw "The file does not open";
+    if(!count_of_vehicle) throw "There are no vehicles in garage";
 
     std::ofstream out("garage.txt");
     if (!out.is_open()) throw "The file does not open";
@@ -76,6 +96,8 @@ void Keeper::upload_from_file() {
             case BUS:
                 new_vehicle = new Bus(in);
                 break;
+            default:
+                break;
         }
         my_garage = add_vehicle_to_garage(new_vehicle);
     }
@@ -84,7 +106,7 @@ void Keeper::upload_from_file() {
 
 Garage *Keeper::create_vehicle() {
     int choice;
-    std::cout << "Select vehicle"<<
+    std::cout << "Select vehicle\n"<<
                 "1. Bike\n" <<
                 "2. Car\n" <<
                 "3. Bus" << std::endl;
@@ -104,6 +126,9 @@ Garage *Keeper::create_vehicle() {
         case 3:
             new_vehicle = new Bus();
             break;
+        default:
+            break;
+
     }
 
     return new_vehicle;
