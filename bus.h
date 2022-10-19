@@ -19,7 +19,7 @@ public:
     Bus();
     explicit Bus(std::ifstream& in);
     Bus(const Bus& car);
-    ~Bus() override = default;
+    ~Bus() = default;
 
     void show() override;
     void edit() override;
