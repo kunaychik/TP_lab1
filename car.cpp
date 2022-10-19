@@ -1,22 +1,22 @@
 #include "car.h"
 
 Car::Car() {
-    std::cout << "Enter brand: ";
+    std::cout << "Enter brand: " << std::endl;
     std::cin >> brand;
 
-    std::cout << "Enter model: ";
+    std::cout << "Enter model: " << std::endl;
     std::cin >> model;
 
-    std::cout << "Enter engine capacity: ";
+    std::cout << "Enter engine capacity: " << std::endl;
     std::cin >> engine_capacity;
     InvalidInput;
     if(engine_capacity <= 0) throw "There cannot be less than 0 engine capacity";
 
-    
-    std::cout << "Enter colour: ";
+
+    std::cout << "Enter colour: " << std::endl;
     std::cin >> colour;
 
-    std::cout << "Enter type of KPP: ";
+    std::cout << "Enter type of KPP: " << std::endl;
     std::cin >> KPP_type;
 
 }
@@ -38,13 +38,13 @@ Car::Car(const Car &car) {
 }
 
 void Car::show() {
-    std::cout << "Bus." << std::endl;
+    std::cout << "Car." << std::endl;
     std::cout << "Brand: " << brand << std::endl;
-    std::cout << "Model:" << model << std::endl;
+    std::cout << "Model: " << model << std::endl;
     std::cout << "Engine capacity: " << engine_capacity << std::endl;
     std::cout << "Colour: " << colour << std::endl;
     std::cout << "Type of KPP: " << KPP_type << std::endl;
-    
+
 }
 
 void Car::edit() {
@@ -60,34 +60,38 @@ void Car::edit() {
 
     switch (choice) {
         case 1:
+            std::cout << "New Brand" << std::endl;
             std::cin >> brand;
             break;
         case 2:
+            std::cout << "New Model" << std::endl;
             std::cin >> model;
             break;
         case 3:
+            std::cout << "New Engine capacity" << std::endl;
             std::cin >> engine_capacity;
             InvalidInput;
             if(engine_capacity <= 0) throw "There cannot be less than 0 engine capacity";
             break;
         case 4:
+            std::cout << "New Colour" << std::endl;
             std::cin >> colour;
             break;
         case 5:
+            std::cout << "New Type of KPP" << std::endl;
             std::cin >> KPP_type;
             break;
         default:
             throw "Invalid value";
-            break;
     }
 
 }
 
 void Car::save_to_file(std::ofstream &out) {
-    out << CAR;
-    out << brand;
-    out << model;
-    out << engine_capacity;
-    out << colour;
-    out << KPP_type;
+    out << CAR << std::endl;
+    out << brand << std::endl;
+    out << model << std::endl;
+    out << engine_capacity << std::endl;
+    out << colour << std::endl;
+    out << KPP_type << std::endl;
 }
