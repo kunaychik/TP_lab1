@@ -18,7 +18,7 @@ public:
     Bike();
     explicit Bike(std::ifstream& in);
     Bike(const Bike& car);
-    ~Bike() override = default;
+    ~Bike() = default;
 
     void show() override;
     void edit() override;
