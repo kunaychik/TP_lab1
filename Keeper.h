@@ -12,12 +12,12 @@ public:
     Keeper();
     ~Keeper();
 
-    void add_new_vehicle(); //
-    void delete_vehicle(); //
-    void edit(); //+
+    void add_new_vehicle(); // +
+    void delete_vehicle(); // +
+    void edit(); // +
     void show(); // +
-    void save(); //
-    void upload_from_file(); //
+    void save(); // +
+    void upload_from_file(); // +
 
 private:
     Garage** my_garage;
@@ -25,6 +25,7 @@ private:
 
     Garage* create_vehicle();
     Garage** add_vehicle_to_garage(Garage*);
+
 };
 
 
