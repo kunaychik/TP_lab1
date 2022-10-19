@@ -1,8 +1,13 @@
 #ifndef GARAGE_H
 #define GARAGE_H
 #include <fstream>
+#include <iostream>
+#include <limits>
 
-#define InvalidInput if(std::cin.fail() || std::cin.get() != '\n') throw "Invalid value"
+#define InvalidInput if(std::cin.fail() || std::cin.get() != '\n'){std::cin.clear(); \
+std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');                  \
+std::cin.sync();                                                                     \
+throw "Invalid value"; }
 
 enum Vehicles {
     BIKE = 1,
@@ -19,4 +24,4 @@ public:
 
 };
 
-#endif GARAGE_H
+#endif //GARAGE_H
