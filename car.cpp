@@ -18,7 +18,6 @@ Car::Car() {
 
     std::cout << "Enter type of KPP: " << std::endl;
     std::cin >> KPP_type;
-
 }
 
 Car::Car(std::ifstream &in) {
@@ -94,4 +93,8 @@ void Car::save_to_file(std::ofstream &out) {
     out << engine_capacity << std::endl;
     out << colour << std::endl;
     out << KPP_type << std::endl;
+}
+
+char *Car::get_brand() {
+    return brand;
 }
