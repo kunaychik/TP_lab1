@@ -20,6 +20,7 @@ public:
     Car(const Car& car);
     ~Car() = default;
 
+    char* get_brand() override;
     void show() override;
     void edit() override;
     void save_to_file(std::ofstream& out) override;
