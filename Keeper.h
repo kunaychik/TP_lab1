@@ -19,6 +19,8 @@ public:
     void save(); // +
     void upload_from_file(); // +
 
+    void show_all_vehicle_by_one_brand();
+
 private:
     Garage** my_garage;
     uint16_t count_of_vehicle;
