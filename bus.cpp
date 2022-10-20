@@ -1,6 +1,3 @@
-//
-// Created by UserPC on 10/12/2022.
-//
 
 #include "bus.h"
 
@@ -98,4 +95,8 @@ void Bus::save_to_file(std::ofstream &out) {
     out << num_of_passenger_seats << std::endl;
     out << max_num_of_passengers << std::endl;
     out << destination << std::endl;
+}
+
+char *Bus::get_brand() {
+    return brand;
 }
