@@ -40,7 +40,7 @@ Bike::Bike(const Bike &bike) {
 }
 
 void Bike::show() {
-    std::cout << "Bus." << std::endl;
+    std::cout << "Bike." << std::endl;
     std::cout << "Brand: " << brand << std::endl;
     std::cout << "Model: " << model << std::endl;
     std::cout << "Engine capacity: " << engine_capacity << std::endl;
@@ -97,4 +97,8 @@ void Bike::save_to_file(std::ofstream &out) {
     out << engine_capacity << std::endl;
     out << engine_power << std::endl;
     out << terrain_type << std::endl;
+}
+
+char *Bike::get_brand() {
+    return brand;
 }
