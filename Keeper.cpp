@@ -30,9 +30,9 @@ void Keeper::delete_vehicle() {
 
     for (uint16_t i = 0, j = 0; i < count_of_vehicle; ++i) {
         if(i == choice - 1) continue;
-        new_garage[++j] = my_garage[i];
+        new_garage[j++] = my_garage[i];
     }
-    delete[] my_garage[choice-1];
+    delete my_garage[choice-1];
     --count_of_vehicle;
 
     delete[] my_garage;
@@ -101,7 +101,7 @@ void Keeper::upload_from_file() {
         }
         my_garage = add_vehicle_to_garage(new_vehicle);
     }
-    std::cout << "Successful download\n" << std::endl;
+    std::cout << "Successful upload\n" << std::endl;
 }
 
 Garage *Keeper::create_vehicle() {
@@ -146,4 +146,18 @@ Garage** Keeper::add_vehicle_to_garage(Garage* new_vehicle) {
     delete[] my_garage;
 
     return new_garage;
+}
+
+void Keeper::show_all_vehicle_by_one_brand() {
+    if(!count_of_vehicle) throw "There are no vehicles in garage";
+
+    char my_brand[64];
+    std::cout << "Brand: " << std::endl;
+    std::cin >> my_brand;
+    std::cout << "All vehicles in garage by brand: " << my_brand << std::endl;
+    for (int i = 0; i < count_of_vehicle; ++i) {
+        if(strcmp(my_brand, my_garage[i]->get_brand()) == 0) {
+            my_garage[i]->show();
+        }
+    }
 }
