@@ -18,6 +18,7 @@ enum Vehicles {
 class Garage {
 public:
 
+    virtual char* get_brand() = 0;
     virtual void show() = 0;
     virtual void edit() = 0;
     virtual void save_to_file(std::ofstream& out) = 0;
